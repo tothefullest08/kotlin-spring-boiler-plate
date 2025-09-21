@@ -11,9 +11,9 @@
 - [x] Kotlin 테스트 유틸리티 구축
 
 ## Step 3: Shop 컨텍스트 전환
-- [ ] Command 애그리게이트/도메인/이벤트/예외 Kotlin 변환 및 JPA 매핑 검증
-- [ ] Command 애플리케이션/프레젠테이션 계층(Kotlin DTO, Handler, Controller) 작성
-- [ ] Query 계층(ReadModel, DAO, Controller) Kotlin화 및 통합 테스트 갱신
+- [x] Command 애그리게이트/도메인/이벤트/예외 Kotlin 변환 및 JPA 매핑 검증
+- [x] Command 애플리케이션/프레젠테이션 계층(Kotlin DTO, Handler, Controller) 작성
+- [x] Query 계층(ReadModel, DAO, Controller) Kotlin화 및 통합 테스트 갱신
 - [ ] Shop 관련 테스트(`:domains:shop:test --info`) 실행 및 실패 케이스 보완
 
 ## Step 4: Order 컨텍스트 전환
