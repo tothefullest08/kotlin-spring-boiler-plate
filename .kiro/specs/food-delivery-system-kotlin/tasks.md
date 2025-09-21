@@ -1,9 +1,9 @@
 # Kotlin Food Delivery & CQRS 작업 계획
 
 ## Step 1: 환경 준비
-- [ ] 루트/모듈 `build.gradle.kts` 구성 (Kotlin/JPA 플러그인, 의존성)
-- [ ] `settings.gradle.kts`와 Gradle Wrapper 세팅
-- [ ] 공통 문서/스크립트 복사 및 Kotlin화된 규칙 반영
+- [x] 루트/모듈 `build.gradle.kts` 구성 (Kotlin/JPA 플러그인, 의존성)
+- [x] `settings.gradle.kts`와 Gradle Wrapper 세팅
+- [x] 공통 문서/스크립트 복사 및 Kotlin화된 규칙 반영
 
 ## Step 2: Common 모듈 전환
 - [ ] `AggregateRoot`, `BaseEntity`, `DomainEvent`, `ErrorCode` Kotlin 작성
