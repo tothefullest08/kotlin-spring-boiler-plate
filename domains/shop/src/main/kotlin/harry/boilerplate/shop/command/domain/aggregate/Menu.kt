@@ -41,7 +41,7 @@ class Menu private constructor(
         orphanRemoval = true,
         fetch = FetchType.LAZY
     )
-    private var optionGroupsInternal: MutableList<OptionGroup>
+    private var optionGroupsInternal: MutableList<OptionGroup> = mutableListOf()
 ) : AggregateRoot<Menu, MenuId>() {
 
     override val id: MenuId

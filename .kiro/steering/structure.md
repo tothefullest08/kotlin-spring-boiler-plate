@@ -59,7 +59,7 @@ kotlin-spring-boiler-plate/
 ## Kotlin 프로젝트 규칙
 
 1. **디렉터리 명명**: 모든 소스는 `src/main/kotlin`, 테스트는 `src/test/kotlin` 아래에 위치
-2. **패키지 네이밍**: `harry.boilerplate.<context>` 유지, 하위 패키지는 도메인 역할 기반으로 구분
+2. **패키지 네이밍**: `harry.boilerplate.<context>` 유지, 하위 패키지는 도메인 역할 기반으로 구분. `harry.boilerplate`는 최상위 네임스페이스이며, 루트 모듈의 `src/main/kotlin` 하위 디렉터리 구조(`src/main/kotlin/harry/boilerplate/...`)를 그대로 패키지로 반영합니다. 컨텍스트(`shop`, `common`, 등)와 CQRS 레이어(`command`, `query`)는 이 하위 패키지에서 분기합니다.
 3. **Command/Query 분리**: Kotlin 파일도 Java와 동일한 서브 디렉터리 구조를 유지하여 가독성 확보
 4. **DDD 계층**: `AggregateRoot`, `DomainEntity`, `ValueObject`는 Common 모듈의 Kotlin 추상 클래스를 상속
 5. **Configuration/Response/Exception**: 공통 모듈에 위치시키고 각 컨텍스트에서 재사용

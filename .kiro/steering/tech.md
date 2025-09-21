@@ -333,6 +333,14 @@ class OpenMenuCommandHandlerTest {
 - **Domain**: Aggregate/Entity/ValueObject, Domain Event 저장, Kotlin 불변성 활용
 - **Infrastructure**: Repository/DAO, 외부 API 연동, 구현체는 Command/Query 별도로 작성
 
+### Repository 구현 가이드
+- Command 쪽 인프라스트럭처 리포지토리는 도메인 포트(`ShopRepository`, `MenuRepository`)를 구현하고, 내부에서는 `Spring Data JpaRepository`에 위임해 영속성을 처리합니다.
+- `JpaRepository` 인터페이스는 인프라 패키지에 정의하고, 어댑터 구현체가 주입받아 저장/조회/삭제를 호출합니다. 이때 도메인 ID 값 객체(`ShopId`, `MenuId`)와 문자열 키 매핑을 책임집니다.
+- 단순 CRUD는 기본 메서드를 사용하고, 주문/가게 단위 조회처럼 파생 쿼리가 필요한 경우 `findAllByShopIdValueOrderByCreatedAtAsc`와 같이 프로퍼티 기반 네이밍 규칙을 따릅니다.
+- 트랜잭션 경계(`@Transactional`) 안에서 JPA가 자동으로 flush/commit을 수행하므로, 즉시 쿼리 동기화가 필요한 특수 상황이 아니라면 수동 `flush()` 호출을 피합니다.
+- Query 쪽 DAO는 복잡한 조인/뷰 모델 구성이 많으므로 `EntityManager` 기반 구현을 유지해도 됩니다. 단, Command 계층과 의존성이 교차되지 않도록 주의합니다.
+- 연관 컬렉션은 애그리거트가 생성된 직후에도 바로 사용할 수 있도록 `mutableListOf()`와 같은 빈 컬렉션으로 선할당합니다. Hibernate는 영속화 시점에 내부적으로 `PersistentBag` 등으로 래핑해 주기 때문에, 선할당을 해도 변경 감지 기능은 그대로 유지됩니다.
+
 ## 네이밍 및 Kotlin 관례
 - Command Handler: `OpenMenuCommandHandler`
 - Query Handler: `MenuBoardQueryHandler`
