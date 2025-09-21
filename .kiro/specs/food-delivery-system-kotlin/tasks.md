@@ -6,9 +6,9 @@
 - [x] 공통 문서/스크립트 복사 및 Kotlin화된 규칙 반영
 
 ## Step 2: Common 모듈 전환
-- [ ] `AggregateRoot`, `BaseEntity`, `DomainEvent`, `ErrorCode` Kotlin 작성
-- [ ] 공통 Exception/Response/Config Kotlin화
-- [ ] Kotlin 테스트 유틸리티 구축
+- [x] `AggregateRoot`, `BaseEntity`, `DomainEvent`, `ErrorCode` Kotlin 작성
+- [x] 공통 Exception/Response/Config Kotlin화
+- [x] Kotlin 테스트 유틸리티 구축
 
 ## Step 3: Shop 컨텍스트 전환
 - [ ] Command 애그리게이트/도메인/이벤트/예외 Kotlin 변환 및 JPA 매핑 검증
